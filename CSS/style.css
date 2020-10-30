@@ -1,0 +1,22 @@
+body 
+{
+    background-color: lightblue;
+}
+
+#logo
+{
+    height: 140px;
+    width: 140px;
+}
+
+.advertising
+{
+    height: 300px;
+    width: 300px;
+}
+
+#copyright
+{
+    text-align: center;
+    color: red;
+}
