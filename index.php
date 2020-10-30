@@ -9,6 +9,7 @@
 
     createPageHeader('Home');     
     
+    echo '<br><br><h1 id="wc">Welcome To This Sports car website.</h1>';
     echo "<br><br> I am very big fan of sports car.";
     echo "<br><br> I feel very alive when i drive sports car. That is The Reason Why I Have Started This Company.";
     

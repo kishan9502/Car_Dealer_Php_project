@@ -66,7 +66,7 @@ function createPageFooter()
 function displayLogo(){
     
     echo '<br><br><img id="logo" src = " '.PICTURE_CAR_LOGO.'">';
-    echo "Sports Car";
+    echo "<h1 id='sc'>Sports Car</h1>";
 }
 
 function displayCopyright(){
@@ -79,8 +79,8 @@ function displayCopyright(){
 function displayNavigationMenu(){
     
     echo '&nbsp<a href = " '.PAGE_INDEX.'">HOME PAGE</a>';
-    echo '&nbsp<a href = "'.PAGE_PICTURES.'">BUYING PAGE</a>';
-    echo '&nbsp<a href = "'.PAGE_CONTACT.'">ORDERS PAGE</a>';
+    echo '&nbsp&nbsp&nbsp&nbsp&nbsp<a href = "'.PAGE_BUYINGPAGE.'">BUYING PAGE</a>';
+    echo '&nbsp&nbsp&nbsp&nbsp&nbsp<a href = "'.PAGE_ORDERSPAGE.'">ORDERS PAGE</a>';
     
 }
 

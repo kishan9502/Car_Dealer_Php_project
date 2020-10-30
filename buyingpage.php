@@ -17,8 +17,8 @@
     }
     echo "<ol>";
     
-    #<img src = " ' .FOLDER_IMAGES . PICTURE_FOOD. ' ">;
-    #echo '<br><br><img src="./images/food.jpg" alt="myPic" />';
+    #<img src = " ' .FOLDER_IMAGES . PICTURE_CAR2. ' ">;
+    #echo '<br><br><img src="./images/CAR2.jpg" alt="myPic" />';
     echo '<br><br><img src = " '.PICTURE_CAR2.' ">';
     
     #echo '<br><br><img src = " '.PICTURE_CHICKEN.' ">';
