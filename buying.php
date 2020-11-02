@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
         $Inputpro=null;
         }
         elseif ((!preg_match("/^p/",($_POST["inputproduct"])))&& (!preg_match("/^P/",($_POST["inputproduct"])))) {
-                $ErrorData= "<br>The should start with P or p ";
+                $ErrorData= "<br>The product code should start with P or p ";
                 $Inputpro="";
                   $Inputpro=null;
     }

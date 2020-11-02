@@ -1,0 +1,97 @@
+**************************How to use define************************************
+define ( string $name , mixed $value [, bool $case_insensitive = FALSE ] ) : bool
+
+
+/*How to use array */
+array(
+    key  => value,
+    key2 => value2,
+    key3 => value3,
+    ...
+)
+
+***********************How to define a function********************************
+<?php
+function foo($arg_1, $arg_2, /* ..., */ $arg_n)
+{
+    echo "Example function.\n";
+    return $retval;
+}
+?>
+
+***********************How to include a file in all files**********************
+include 'filename.php';
+
+
+**********************How to do validation of a form***************************
+if(isset($_POST['submit'])){
+    if((strlen(htmlspecialchars($_POST["inputproduct"]))>CHAR_SIZE+2)){
+        $ErrorData= "<br>The product code contains more than 10 ";
+        $Inputpro="";
+        $Inputpro=null;
+    }
+    else if(strlen(htmlspecialchars($_POST["inputproduct"]))==0){
+
+        $ErrorData= "<br>The product code cannot be empty ";
+        $Inputpro="";
+        $Inputpro=null;
+        }
+        elseif ((!preg_match("/^p/",($_POST["inputproduct"])))&& (!preg_match("/^P/",($_POST["inputproduct"])))) {
+                $ErrorData= "<br>The product code should start with P or p ";
+                $Inputpro="";
+                  $Inputpro=null;
+    }
+    else{
+        $Inputpro=($_POST["inputproduct"]);
+    
+    }
+
+
+**********************How to create a form***************************
+Product code: 
+<input type="text" name='inputproduct' value="<?php echo $Inputpro;?>"  size="12" style="font-size:13pt;font-weight:bold;"> 
+<strong><font color=#CC0000>*<?php echo $ErrorData;?>
+</font></strong>
+   <br /><br />
+   
+Customer First name :
+<input type='text' name='firstname' value="<?php echo $Inputfn; ?>" size="12" style="font-size:13pt;font-weight:bold;"> 
+<strong><font color=#CC0000>*<?php echo $Errorfn;?></font></strong>
+<br /><br />
+
+**********************How to retrieve the details stored in text file in json code***************************
+$retrieveData= file_get_contents("purchases.txt");
+    $retrieveData = json_decode($retrieveData, true);
+
+**********************How to give copyright in the footer***************************
+echo "<h3 id='copyright'> &copy; Kishan Thakkar ".date("Y")."</h3>";
+
+
+**********************How to count the total price after including the tax in it***************************
+ echo "<td>".(($retrieveDatas[0]["price"]*$retrieveDatas[0]["quantity"])+($retrieveDatas[0]["price"]*$retrieveDatas[0]["quantity"]*($tax)))."</td>";
+
+
+**********************How to shuffle advertise***************************
+ shuffle($advertisingParts);
+
+
+**********************How to send details into a text file by clicking on the submit button***************************
+ $SendDetail=Array("code"=>$Inputpro,"fname"=>$Inputfn,"lname"=>$Inputln,"city"=>$Inputcity,"comments"=>$Inputcmt,"price"=>$Inputprice,"quantity"=>$Inputqn);
+  
+       if(in_array(null,$SendDetail)){
+           
+           echo "No Data";
+       }
+       else{
+           array_push($Arraysn,$SendDetail);
+         
+               $file=fopen("purchases.txt","r+");
+               $current_data= file_get_contents('purchases.txt');
+               $array_data= json_decode($current_data,true);
+               $array_data[]=$Arraysn;
+             
+           
+               file_put_contents('purchases.txt',json_encode($array_data));
+            fclose($file);
+           
+       }

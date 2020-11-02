@@ -6,7 +6,7 @@
     ?>
     <?php 
     //declaring the variables for calculating the tax on total amount of the product
-    $tax=0.15;
+    $tax=0.125;
     $subTotal=0.0;
     $taxAmount=0.0;
     //saving data in the text file via json code
