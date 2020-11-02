@@ -14,7 +14,7 @@
     echo "<br><br> I feel very alive when i drive sports car. That is The Reason Why I Have Started This Company.";
     //advertisement 
     shuffle($advertisingParts);
-    #echo "<br><br>The selected Drink is : ".$advertisingDrinks[0];
+    
 //    echo '<a href="https://www.newegg.ca/"><img src="./images/car-3.jpg"></a>';    
     echo '<br><br><a href="https://www.newegg.ca/"> <img class="advertising" src="'.$advertisingParts[0].'"></a>';
 
