@@ -1,6 +1,12 @@
+/*creating one css for the whole website */
 body 
 {
     background-color: lightblue;
+}
+.header {
+  overflow: hidden;
+  background-color: #333;
+  padding: 20px 10px;
 }
 
 #logo
@@ -9,16 +15,32 @@ body
     width: 140px;
 }
 
+/*#borderimg
+{
+    border:5px solid red;
+    border-image: url(car-7.jpg) 30 round;
+}*/
+
 .advertising
 {
-    height: 300px;
-    width: 300px;
+    border:5px solid red;
+    border-image: url(car-7.jpg);
+/*    height: 300px;
+    width: 300px;*/
 }
 
 #copyright
 {
     text-align: center;
     color: red;
+}
+
+input ,strong{
+  display: inline-block;
+  float: left;
+  size:12;
+  font-size:13pt;
+  font-weight:bold;
 }
 
 #wc

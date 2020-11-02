@@ -24,15 +24,15 @@ define('FILE_AD_CAR6', FOLDER_IMAGES.'car-6.jpg');
 define('FILE_AD_CAR7', FOLDER_IMAGES.'car-7.jpg');
 
 ################## FOR PHP #######################
-define('PAGE_INDEX', 'index.php');
-define('PAGE_PICTURES', 'pictures.php');
-define('PAGE_CONTACT', 'contact-us.php');
+define('PAGE_HOME', 'Home.php');
+define('PAGE_BUYING', 'buying.php');
+define('PAGE_ORDERS', 'Orders.php');
 
 ##################   FOR CSS    ##################
 define('FOLDER_CSS', 'CSS/');
 define('FILE_CSS', FOLDER_CSS.'style.css');
 
-//creating array for the drinks by declaring global variable
+//creating array of the cars by for advertise by declaring global variable
 $advertisingParts = array(FILE_AD_CAR3,FILE_AD_CAR4,FILE_AD_CAR5,FILE_AD_CAR6,FILE_AD_CAR7);
 
 //creating header and footer funtions without using echo
@@ -43,7 +43,7 @@ function createPageHeader($title)
     ?><!DOCTYPE HTML>
             <html>
             <head>
-                <meta charset=\"UTF-8\">
+                <meta charset="UTF-8">
                 <title><?php echo $title; ?></title>
                 <link rel="stylesheet" href="<?php echo FILE_CSS; ?>">
             </head>
@@ -62,25 +62,25 @@ function createPageFooter()
     <?php
     displayCopyright();
 }
-
+//function for logo
 function displayLogo(){
     
     echo '<br><br><img id="logo" src = " '.PICTURE_CAR_LOGO.'">';
-    echo "<h1 id='sc'>Sports Car</h1>";
+    echo "<h2 id='sc'>Sports Car</h2>";
 }
-
+//function for diplaying copyright
 function displayCopyright(){
     
     echo '<br><br>';
     echo "<h3 id='copyright'> &copy; Kishan Thakkar ".date("Y")."</h3>";
     
 }
-
+//function for creating navigation menu
 function displayNavigationMenu(){
     
-    echo '&nbsp<a href = " '.PAGE_INDEX.'">HOME PAGE</a>';
-    echo '&nbsp&nbsp&nbsp&nbsp&nbsp<a href = "'.PAGE_BUYINGPAGE.'">BUYING PAGE</a>';
-    echo '&nbsp&nbsp&nbsp&nbsp&nbsp<a href = "'.PAGE_ORDERSPAGE.'">ORDERS PAGE</a>';
+    echo '&nbsp<a href = " '.PAGE_HOME.'">HOME PAGE</a>';
+    echo '&nbsp&nbsp&nbsp&nbsp&nbsp<a href = "'.PAGE_BUYING.'">BUYING PAGE</a>';
+    echo '&nbsp&nbsp&nbsp&nbsp&nbsp<a href = "'.PAGE_ORDERS.'">ORDERS PAGE</a>';
     
 }
 
