@@ -25,8 +25,10 @@ define('FILE_AD_CAR7', FOLDER_IMAGES.'car-7.jpg');
 
 ################## FOR PHP #######################
 define('PAGE_HOME', 'Home.php');
-define('PAGE_BUYING', 'buying.php');
-define('PAGE_ORDERS', 'Orders.php');
+define('PAGE_LOGIN', 'login.php');
+define('PAGE_BUY', 'buy.php');
+define('PAGE_ACCOUNT', 'account.php');
+define('PAGE_PURCHASES', 'purchases.php');
 
 ##################   FOR CSS    ##################
 define('FOLDER_CSS', 'CSS/');
@@ -46,6 +48,8 @@ function createPageHeader($title)
                 <meta charset="UTF-8">
                 <title><?php echo $title; ?></title>
                 <link rel="stylesheet" href="<?php echo FILE_CSS; ?>">
+                <script type="text/javascript" src="javascript/ajax.js"></script>
+
             </head>
             <body>
         
@@ -62,6 +66,47 @@ function createPageFooter()
     <?php
     displayCopyright();
 }
+
+function login_pass($uname, $pword)
+    {
+        $uid="";
+        global $connection;
+        try {
+            $sqlQuery = "CALL customer_login(:uname);";
+            
+
+            $PDOStatement = $connection->prepare($sqlQuery);
+
+            $PDOStatement->bindParam(':uname', $uname);
+
+            $PDOStatement->execute();
+
+            $row = $PDOStatement->fetch();
+            if ($row != null) {
+                $dbpass = $row["c_password"];
+                $uid = $row["customer_uuid"];
+                
+            }
+            else{
+                return "Invalid ID";
+            }
+            $dp=password_hash($dbpass, PASSWORD_DEFAULT);
+            if(password_verify($pword, $dp))
+            {
+                 $_SESSION['login']=true;
+                 $_SESSION['User']=$uid;
+                  header('location: Home.php');
+                  return "";
+            }
+                else {
+                return "Invalid Login OR Password";
+            }
+               
+          
+        } catch (PDOException $E) {
+            echo $E->getMessage();
+        }
+    }
 //function for logo
 function displayLogo(){
     
@@ -72,16 +117,17 @@ function displayLogo(){
 function displayCopyright(){
     
     echo '<br><br>';
-    echo "<h3 id='copyright'> &copy; Kishan Thakkar ".date("Y")."</h3>";
+    echo "<h3 id='copyright'> &copy; Kishan Thakkar-2013644 ".date("Y")."</h3>";
     
 }
 //function for creating navigation menu
 function displayNavigationMenu(){
     
     echo '&nbsp<a href = " '.PAGE_HOME.'">HOME PAGE</a>';
-    echo '&nbsp&nbsp&nbsp&nbsp&nbsp<a href = "'.PAGE_BUYING.'">BUYING PAGE</a>';
-    echo '&nbsp&nbsp&nbsp&nbsp&nbsp<a href = "'.PAGE_ORDERS.'">ORDERS PAGE</a>';
-    
+    echo '&nbsp&nbsp&nbsp&nbsp&nbsp<a href = "'.PAGE_LOGIN.'">LOGIN PAGE</a>';
+    echo '&nbsp&nbsp&nbsp&nbsp&nbsp<a href = "'.PAGE_BUY.'">BUY PAGE</a>';
+    echo '&nbsp&nbsp&nbsp&nbsp&nbsp<a href = "'.PAGE_ACCOUNT.'">ACCOUNT PAGE</a>';
+    echo '&nbsp&nbsp&nbsp&nbsp&nbsp<a href = "'.PAGE_PURCHASES.'">PURCHASES PAGE</a>';    
 }
 
 ?>

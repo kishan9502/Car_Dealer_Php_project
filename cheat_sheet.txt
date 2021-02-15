@@ -97,3 +97,302 @@ echo "<h3 id='copyright'> &copy; Kishan Thakkar ".date("Y")."</h3>";
        }
 
 
+
+use lot of comment
+
+#End time where loading of page stops
+$endTime =  new DateTime('now');
+          
+#diff to find out interval
+ $interval = $startTime->diff($endTime);
+           
+echo $interval->format("It took %s %F seconds to load the page");
+
+------------
+
+ $networkProtocol = substr($URL, 0, $separatorPosition);
+        
+ echo "<br>The network protocol is : ".$networkProtocol;
+-------------
+
+$jsonfile = json_encode($Data,true);
+define("FILE_EOL", "\r\n");
+$file = fopen(".txt", "a");
+fwrite($file,','.FILE_EOL. $jsonfile);
+fclose($file);
+
+========
+subversion
+1. control a subverson repository (a database in a folder)
+
+sub vesion - path
+
+2. in netbeans , click team -> subversion -checkout
+
+file://kishan9502/Subversion _repository_2013644
+
+php project 
+
+then commit the project and enter the revision message
+
+-------------
+//Associative array
+$names = array("Microsoft" => "Bill Gates", "Apple" => "Steve Jobs", "Community" => "Linus Torvalds")
+ foreach($names as $key => $values)
+ {
+    echo "<br>".$key. " " .$values;
+ }
+            
+ $result = sort($names);
+ foreach($names as $key => $values)
+ {
+  echo "<br>".$key. " " .$values;
+  }
+            
+  $result = rsort($names);
+  foreach($names as $key => $values)
+  {
+     echo "<br>".$key. " " .$values;
+ }
+----------
+XML : schema
+<?xml version="1.0" encoding="utf-8">
+<customers>
+	<customer>
+		<firstname>linus<?firstname>
+	</customer>
+<customers>
+==========
+XHTML
+'Content-Type: text/html; charset=UTF-8'
+'Content-Type: application /xhtml+xml; charset=UTF-8'
+
+cookie
+-----------
+ternary operator
+( condition  ? true   :false   )
+
+if(2>1)
+	echo"grater"
+else
+	echo"not greater"
+echo(2>1 ? "greater":"not greater");
+-----------
+session 
+session_start(); create session
+
+if (isset($post[login]))
+{
+deletecookie();
+}
+else
+{
+
+condition
+
+}
+
+---save function
+public function save()
+{
+	global $connection;
+	if($this -> person_uuid == "")
+	{
+	    $SQLquery=" ";
+	    $PDOStatement-> $connection -> prepare($sqlquery);
+	    $PDOStatement->bindparam('::username',$this ->firstname);
+	}
+	else
+	{
+		$sqlQuery ='call employee_load(:;pk)';
+		$PDOStatement = $connectin-> prepare($sqlQuery);
+		$pk='1235789';
+		$person->save();
+	}
+
+---------
+geter and seter
+function getFirstname()
+{
+	return $this -> firstname;
+}
+function setFirstname($newfirstname)
+{
+	if(mb_strlen($newfirstname)==0)
+		{
+			return"":
+		}
+}
+
+
+
+
+------------
+
+
+
+database
+pdq (php data objects)
+
+
+to connect== $connection = new (mysql:host localhost;dbname=test,"php","123");
+$connection ->setAttribute(PDO::attr_errormode,PDO::ERRMODE_EXCEPTION);
+$sqlQuerry
+ 
+$pdosstatement =$connection ->query($sqlquery) 
+ 
+$pdoSTATEMENT =$CONNECTION->prepare($sqlQuery)
+	$podstatement->bindparam(':username',$_post["username"]);
+	
+$PDOStatement->execte();
+
+
+ $connection =null;
+
+oop
+$connection new mysqli('localhost','php','123','test');
+
+if($connection->connect_error)
+{
+die('fail'.$connection->connect_error);
+
+$connection ->close();
+
+
+sir note pad
+3rd place , sql statement:
+"select * from mytable...".$variable. "...AND PASSWORD =$PASSWORD'"
+VULNERABLE TO SQL INJECTIONS
+
+-------
+$password=$_POST["PASSWORD"];
+$encryptedPassword = password_hash($password, password_default);
+
+echo " ".$encryptedPassword ;
+
+$regularPassword = "123";
+
+if(password_verify("123",'qwertszxzaADASD')) 
+	echo'logged in';
+else
+	echo'not logged'; 
+
+--load function 
+public function load($employee_uuid)
+{
+	golbal $connection ;
+	$sqlQuery="call employee(:pk)";
+	$PDOStatement -> bindparam('pk','keyaddress')
+	$PDOStatement -> execute();
+	if($row = $PDOStatement->fetch(PDO::FETCH_ASSOC) )
+	{
+	$this -> firstname =$row["firstname"]
+	}
+}
+
+
+----delete function
+public function delete()
+{
+	global $connection;
+	$sqlQuery=" call employee_delete(:p_person_uuid)";
+	$PDOStatement = $connection->prepare($SqlQuery);
+
+	$PDOStatement->bindparam(':p_person_uuid',$employee_uuid);
+	$PDOStatement->execute(); 
+	return $affectedRows;
+}
+
+
+---search 
+query{
+	$searchQuery=$_post["searcquery"];
+	$person=new person();
+	
+	foreach($person-> item as $person)
+	{
+	echo"";
+
+	}
+
+	}
+----
+in singular class
+
+
+class collection
+{
+public $item=array();
+public function add($primary_key, $item)
+{
+	$this -> item [$primary_key]=$item;
+	
+}
+public function remove($primary_key)
+{
+ifisset(this-> items[$primary_key]))
+{unset(this->item[$primary_key]);
+}
+}
+public function get[primary_key])
+{if(isset()$this->item[$primary_key])}
+{unset($this->items[$primary_key])}
+{unset($this->item[$primary_key]);}
+}
+public function count()
+{
+	returncount($this->item);
+}
+----construct extension of collection 
+{
+function  __construct()
+{
+global $test;
+global $connection;
+
+$sqlQuery='emp_select()';
+$pdstatement->execute();
+while($row=$PDOstatement -> fetch(PDO::ffETCH_ASSOC))
+{
+$person =new person($row['uuis'],$row['firstname'],$Row["cvbn"])
+$this ->add['-uuid'],%person);
+}
+}
+}
+
+----- create drop down list
+
+
+--load objject 
+<select name="cars" id="cars">
+<?php
+	foreach($persons-> items as $persons)
+	{
+	echo '<value= .$person->getPersonUUID().'">'
+		$person->getFirstname().</otption>;
+	
+	}
+?>
+</select>
+-------error handleError
+
+functionhandleError(error){ alert("");}
+
+function getXMLHTTprequest()
+
+{
+ try
+	VAR(window.xmlHTTPREquest())
+	if()
+
+	else
+
+  xhr.open("Post","search-customer.php");
+  xhr.setRequestHeader('content-type','application/www-form-url');
+  xhr.send(); 
+}
+ catch(error)
+{
+
+}
+
